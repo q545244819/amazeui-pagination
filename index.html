@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>page.js</title>
+  <link rel="stylesheet" href="http://cdn.amazeui.org/amazeui/2.5.0/css/amazeui.min.css">
+  <style>
+    body {
+      font-size: 14px;
+    }
+  </style>
+</head>
+
+<body>
+  <ul class="am-pagination"></ul>
+  <script src="http://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
+  <script src="amazeui-pagination.js"></script>
+  <script>
+    var pagination = new Pagination({
+      wrap: $('.am-pagination'),
+      count: 8,
+      current: 3,
+      prevText: '上一页',
+      nextText: '下一页',
+      callback: function(page) {
+        console.log(page);
+      }
+    });
+  </script>
+</body>
+
+</html>

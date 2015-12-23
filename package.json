@@ -1,0 +1,24 @@
+{
+  "name": "amazeui-pagination",
+  "version": "0.1.0",
+  "description": "amazeui-pagination 是基于`amazeui`和`jQuery`所造的轮子，因为妹子 UI 官方没有分页相关的`js`组件故自己造了一个。欢迎大家提出问题和贡献代码。",
+  "main": "amazeui-pagination.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/q545244819/amazeui-pagination.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/q545244819/amazeui-pagination/issues"
+  },
+  "homepage": "https://github.com/q545244819/amazeui-pagination#readme",
+  "dependencies": {
+    "gulp": "^3.9.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^1.5.1"
+  }
+}
