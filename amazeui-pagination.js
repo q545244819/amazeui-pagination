@@ -79,10 +79,11 @@
     var _self = this,
       ajax = _self.ajax,
       url = ajax.url + num,
+      data = ajax.data,
       success = ajax.success,
       error = ajax.error;
 
-    $.get(url)
+    $.get(url, data)
       .success(function (result) {
         if (typeof success === 'function') {
           success(result);
