@@ -26,9 +26,16 @@ var pagination = new Pagination({
     // page 为当前点击的页数
   },
   // 会发送 get 请求到 /api/xxx/page/page_number
+  // 或者你可以写成 /api/xxx?page= 插件发送的 url 为 /api/xxx?page=page_number
   // page_number 为当前的页数
   ajax: {
     url: '/api/xxx/page/',
+    // 你可以传入你需要的 queryString
+    data: {
+      xxx: 'xxx',
+      yyy: 'yyy',
+      zzz: 'zzz'
+    }
     success: function(result) {
       // result 成功返回的结果
     },
