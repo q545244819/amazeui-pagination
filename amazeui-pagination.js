@@ -16,7 +16,7 @@
      * ajax.error 失败回调函数
      */
     this.ajax = json.ajax; // 点击页数调一个 get 异步请求
-    
+
     // 调用初始化函数
     this.init();
   };
@@ -34,18 +34,19 @@
 
     $(wrap)
       .html(render.call(_self, current))
+      .off()
       .on('click', 'li', function () {
         var $this = $(this),
           num = parseInt($this.text()),
           ruler = $this.data('ruler');
-          
+
         // 如果当前点击的是页数的按钮的话，current 就赋值当前页数
         if ($.isNumeric(num)) {
           current = num;
         }
 
         if (($.isNumeric(num) || ruler) && !$this.hasClass('am-disabled')) {
-          
+
           // 通过 data-ruler 的值来判断是上一页或下一页按钮
           switch (ruler) {
             case 'prev':
@@ -55,11 +56,11 @@
               current += 1;
               break;
           }
-          
+
           // 渲染分页内容
           $(_self.wrap).html(render.call(_self, current));
         }
-        
+
         // 如果是有设置 ajax 的选项的话
         if (ajax) {
           get.call(_self, current);
@@ -101,7 +102,7 @@
     if (!num) {
       return;
     }
-    
+
     var template = [],
       _self = this,
       count = _self.count,
@@ -110,21 +111,21 @@
       nextText = _self.nextText,
       base = (differNumber * 2) + 1,
       number, number2, number3;
-      
+
     if (count > base) {
       number = (num - differNumber) <= 0 ? 1 : num - differNumber,
       number2 = (num + differNumber) >= count ? num - ((num + differNumber + 1) - count) : number,
-      number3 = (number2 + (differNumber + 2)) >= count ? count : number2 + differNumber + 1;  
+      number3 = (number2 + (differNumber + 2)) >= count ? count : number2 + differNumber + 1;
     } else {
       number2 = 1;
       number3 = count;
     }
-      
+
     // 如果当前是第一页的话，上一按钮不可用
     num > 1 ?
       template.push('<li data-ruler="prev"><a href="#">' + prevText + '</a></li>') :
       template.push('<li data-ruler="prev" class="am-disabled"><a href="#">' + prevText + '</a></li>');
-      
+
     // 距离第一页页数过长就省略
     if (number3 > base && num + differNumber >= count) {
       template.push('<li><a href="#">1</a></li>');
@@ -136,18 +137,18 @@
         template.push('<li class="am-active"><a href="#">' + i + '</a></li>') :
         template.push('<li><a href="#">' + i + '</a></li>');
     }
-    
+
     // 距离最后一页页数过长就省略
     if (count > base && num + differNumber < count) {
       template.push('<li class="am-disabled"><a href="#">...</a></li>');
       template.push('<li><a href="#">' + count + '</a></li>');
     }
-    
+
     // 如果当前是最后一页的话，下一页按钮不可用
     num === count ?
       template.push('<li data-ruler="next" class="am-disabled"><a href="#">' + nextText + '</a></li>') :
       template.push('<li data-ruler="next"><a href="#">' + nextText + '</a></li>');
-      
+
     // 最后把 template 数组拼接成字符串
     return template.join('');
   };
