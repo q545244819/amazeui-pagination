@@ -35,7 +35,7 @@ var pagination = new Pagination({
       xxx: 'xxx',
       yyy: 'yyy',
       zzz: 'zzz'
-    }
+    },
     success: function(result) {
       // result 成功返回的结果
     },
